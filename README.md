@@ -5,5 +5,6 @@
 - Add ruby in path: `echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc`
 - If webrick is messing, then run `bundle add webrick`
 
-
+# Serve Locally
+- `bundle exec jekyll serve`
 

@@ -35,6 +35,8 @@ tags: [Cheminformatics, SMILES, molecule]
 - (2018), [Mordred: a molecular descriptor calculator](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-018-0258-y#author-information), [open source](https://github.com/mordred-descriptor/mordred)
 
 ## Conferences & Workshops
+- [RSC Ultra-large Chemical Libraries](https://www.rsc.org/events/detail/73675/ultra-large-chemical-libraries)
+- [11th International Conference on Chemical Structures (ICCS](https://iccs-nl.org/general-information/scientific-program/)
 - [The 8th French-Japanese Workshop on Computational Methods in Chemistry (FJCMC2020)](https://www.chem.kumamoto-u.ac.jp/~frjp2020/invited-speakers.html)
 - [Chemoinformatics Strasbourg Summer School 2022](http://infochim.u-strasbg.fr/spip.php?rubrique286)
 

@@ -17,11 +17,14 @@ tags: [Cheminformatics, SMILES, molecule]
 - (2017), [Tutorials in Chemoinformatics](https://www.wiley.com/en-us/Tutorials+in+Chemoinformatics-p-9781119137962)
 
 ## Online Tutorials
+- [Making Molecules](https://www.makingmolecules.com/handouts)
 - [Drug Discovery & Medicinal Chemistry](https://www.edx.org/course/med-001) on edX
 - [Daylight Cheminformatics](https://www.daylight.com/cheminformatics/index.html)
 
 ## Research Labs
 - [Tsuda Lab](https://www.tsudalab.org/en/) of Univ. Tokyo
+- [Algorithmic Cheminformatics Group](https://cheminf.imada.sdu.dk/) SDU, Demark
+- [Center for the study of systems biology](https://sites.gatech.edu/cssb/downloads/) Gatech
 
 ## Papers
 - (2021), [SynthI: a new open-source tool for synthon-based library design](https://chemrxiv.org/engage/chemrxiv/article-details/60d5a2dd403d996701bc6da8), [source](https://github.com/Laboratoire-de-Chemoinformatique/SynthI)
@@ -67,7 +70,9 @@ tags: [Cheminformatics, SMILES, molecule]
 - [Chemaxon](https://docs.chemaxon.com/display/docs/)
 - [Xemistry](https://www.xemistry.com/)
 - [Molsoft](https://www.molsoft.com/index.html): Molecular Editor, Giga-Search
+    - [Linux Cluster Installation VLS](https://molsoft.com/linux-cluster.html)
 - [ChemBytes](https://chembytes.com/)
 
 ## Startups
 - [SyntheticGestalt](https://syntheticgestalt.com/)
+- [iSiP](https://corp.i-sip.jp/)

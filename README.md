@@ -6,5 +6,7 @@
 - If webrick is messing, then run `bundle add webrick`
 
 # Serve Locally
+- add Gemfile
+- `bundle install`
 - `bundle exec jekyll serve`
 

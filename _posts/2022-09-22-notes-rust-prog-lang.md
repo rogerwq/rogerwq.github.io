@@ -36,6 +36,9 @@ tags: [rust]
 - There is no runtime performance penalty for using this pattern, and the wrapper type is elided at compile time.
 - If we wanted the new type to have every method the inner type has, implementing the ```Deref``` trait ... on the Wrapper to return the inner type would be a solution.
 
+
+
+
 ### 19.3 Advanced Types
 
 #### Using the newtype pattern for type safety and abstraction
@@ -54,3 +57,20 @@ tags: [rust]
 - By default, generic functions will work only on types that have a known size at compile time. However, you can sue the following special syntax to relax this restriction ... ```?Sized```
 - A trait bound on ```?Sized``` means "T may or may not be Sized" and this notation overrides the default that generic types must have a known size at the compile time.
 - The ```?Trait``` syntax ... is only available for ```Sized```, not any other traits.
+
+
+
+### 19.4 advanced functions and closures
+
+### Function pointers
+- functions coerce to the type ```fn```, not to be confused with the ```Fn``` closure trait.
+- The ```fn``` type is called a function pointer
+- unlike closures, ```fn``` is a type rather than a trait, so we specify ```fn``` as the parameter type directly rather than declaring a generic type parameter with one of the ```Fn``` traits as a trait bound. Function pointers implement all three of the closure traits (Fn, FnMut and FnOnce).
+- ..., one example of where you would want to only accept fn and not closures is when interfacing with external code that doesn't have closures: C functions can accept functions as arguments, but C doesn't have closures.
+- ... enum variant ... an initializer function ... we can specify the initializer functions as arguments for methods that take closures.
+
+
+### Returning closures
+- closures are represented by traits, which means you can't return closures directly.
+- you can't do that with closures because they don't have a concrete type that is returnable; you're not allowed to use the function pointer fn as a return type.
+- ... trait object... ```Box<dyn Fn(i32) -> i32>```

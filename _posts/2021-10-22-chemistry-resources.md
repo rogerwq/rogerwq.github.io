@@ -1,17 +1,19 @@
 ---
 layout: post
-title: Cheminformatics Resources
+title: Data Science, Cheminformatics and Bioinformatics 
 date: 2021-10-22 21:30:20 +0900
 description: 
-img: wall.jpg 
+# img: wall.jpg 
 fig-caption: 
 tags: [Cheminformatics, SMILES, molecule]
 ---
 
-(Updated: 2022, May 8th)
+(Updated: 2022 Nov)
 
-## Open-sourced Software
-- [rDock](http://rdock.sourceforge.net/) A Fast, Versatile and Open Source Program for Docking Ligands to Proteins and Nucleic Acids
+## Background
+- [Hunting for drugs in chemical space](https://cen.acs.org/pharmaceuticals/drug-discovery/Hunting-drugs-chemical-space/100/i23)
+- [Data Science Roles in the Pharmaceutical and Biotechnology Industries](https://medium.com/novo-nordisk-ai-and-analytics-centre-of-excellence/data-science-roles-in-the-pharmaceutical-and-biotechnology-industries-479f1c2dc138)
+
 
 ## Books
 - (2017), [Tutorials in Chemoinformatics](https://www.wiley.com/en-us/Tutorials+in+Chemoinformatics-p-9781119137962)
@@ -20,6 +22,7 @@ tags: [Cheminformatics, SMILES, molecule]
 - [Making Molecules](https://www.makingmolecules.com/handouts)
 - [Drug Discovery & Medicinal Chemistry](https://www.edx.org/course/med-001) on edX
 - [Daylight Cheminformatics](https://www.daylight.com/cheminformatics/index.html)
+- [PUbChem](https://pubchemdocs.ncbi.nlm.nih.gov/tutorials) 
 
 ## Research Labs
 - [Tsuda Lab](https://www.tsudalab.org/en/) of Univ. Tokyo

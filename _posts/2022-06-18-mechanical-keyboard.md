@@ -14,7 +14,7 @@ tags: [keyboard, switch, keycap]
 - [aidansmith.dev](https://www.aidansmith.dev/)
         - [Build Me a Board](https://www.aidansmith.dev/build-me-keeb/)
 
-### Lubing
+## Lubing
 - [How to Lube MX Style Switches](https://www.youtube.com/watch?v=44Wv4OGdmu4)
 
 ## Misc

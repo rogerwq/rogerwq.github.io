@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Business Information of Life Science 
+title: Life Science Informatics 
 date: 2022-12-04 12:35:20 +0900
 # description: 
 # img: 

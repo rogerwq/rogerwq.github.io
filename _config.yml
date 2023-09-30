@@ -11,7 +11,7 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: Qin Wan # add your name
 author-img: qin-wan.jpg # add your photo
-about-author: I am an Algorithm Enthusiast interested in Cheminformatics, Machine Learning, Parallel Programming, etc 
+about-author: I am a software engineer interested in Cheminformatics, Machine Learning, Parallel Programming, etc 
 social-twitter: rogerwq # add your Twitter handle
 # social-facebook: # add your Facebook handle
 social-github: rogerwq # add your Github handle

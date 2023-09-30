@@ -23,6 +23,7 @@ tags: [java, maven]
     - create the project: ```mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false```
     - install the library in local repository: ```mvn clean install```
     - run the app: ```mvn pacakge; java -cp target/examples-0.1.jar com.chiral.examples.App```
+    - upload the library: ```mvn deploy```
 
 ## gRPC for Java
 - [Quickstart from grpc-java](https://grpc.io/docs/languages/java/quickstart/)

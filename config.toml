@@ -1,0 +1,27 @@
+base_url = "https://www.sylvestris.blog"
+title = "慢叔42的笔记"
+compile_sass = true
+build_search_index = true
+
+theme = "terminimal"
+# generate_feed = true
+# feed_filename = "rss.xml" # or atom.xml
+
+taxonomies = [
+    {name = "tags"},
+]
+
+[markdown]
+highlight_code = true
+
+[extra]
+# google_analytics = "UA-107737460-1"
+google_analytics = "G-09SSBRWGSF"
+logo_text = "慢叔42的笔记"
+menu_items = [
+    {name = "文章", url = "$BASE_URL"},
+    {name = "标签", url = "$BASE_URL/tags"},
+    {name = "存档", url = "$BASE_URL/archive"},
+    {name = "关于我", url = "$BASE_URL/about"},
+    # {name = "github", url = "https://github.com/rogerwq", newtab = true},
+]

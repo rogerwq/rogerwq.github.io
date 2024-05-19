@@ -1,4 +1,5 @@
-base_url = "https://www.sylvestris.blog"
+# base_url = "https://www.sylvestris.blog"
+base_url = "https://rogerwq.github.io"
 title = "慢叔42的笔记"
 compile_sass = true
 build_search_index = true

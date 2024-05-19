@@ -18,7 +18,9 @@ highlight_code = true
 [extra]
 # google_analytics = "UA-107737460-1"
 google_analytics = "G-09SSBRWGSF"
+
 logo_text = "慢叔42的笔记"
+
 menu_items = [
     {name = "文章", url = "$BASE_URL"},
     {name = "标签", url = "$BASE_URL/tags"},
@@ -26,3 +28,8 @@ menu_items = [
     {name = "关于我", url = "$BASE_URL/about"},
     # {name = "github", url = "https://github.com/rogerwq", newtab = true},
 ]
+
+favicon = "/favicon.jpg"
+favicon_mimetype = "image/jpg"
+
+page_titles = "combined"

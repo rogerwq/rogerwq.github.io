@@ -3,7 +3,7 @@ title = "Rust中Copy和Clone两种Trait的比较"
 date = 2024-05-19
 
 [taxonomies]
-tags = ["Rust", "知识点"]
+tags = ["Rust"]
 +++
 
 ## 从 Rust 的变量所有权说起

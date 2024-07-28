@@ -6,15 +6,21 @@ date = 2024-06-18
 tags = ["reading"]
 +++
 
-## 2024 July Part 1/2
+## 2024 July
 - *Rust* [Of tantivy, a search engine in Rust](https://fulmicoton.com/posts/behold-tantivy/) by Paul Masurel
 - *Rust* [Writing a tiny Entity Component System in Rust](https://ianjk.com/ecs-in-rust/) by Ian Kettlewell
 - *GPU* [HIP Performance Comparisons : AMD and Nvidia GPUs](https://journal.fluidnumerics.com/hip-performance-comparisons-amd-and-nvidia-gpus)
+- *GPU* [WebGPU Standard](https://gpuweb.github.io/gpuweb/)
 - *Bioinformatics* [MolScript: a story of success and failure](https://pekrau.github.io/2014/11/03/molscript-a-story-of-success-and-failure/)
 - *Slurm* [SUNK by CoreWeave: a slurm on kubernetes](https://www.coreweave.com/blog/sunk-slurm-on-kubernetes-implementations)
 - *Opinions* [All software is web software now](https://jamsocket.com/blog/all-software-is-web-software)
 - *Opinions* [Open Science needs infrastructure](https://pekrau.github.io/2016/05/22/motesplats-open-access-2016-open-science-needs-infrastructure/)
 - *Wiki* [Semantics](https://en.wikipedia.org/wiki/Semantics)
+- *Wiki* [Turing Completeness](https://en.wikipedia.org/wiki/Turing_completeness)
+- *Sokoban*
+    - OpenGameArt [Sokoban Pack](https://opengameart.org/content/sokoban-pack)
+    - U Alberta [Sokoban Homepage](https://webdocs.cs.ualberta.ca/~games/Sokoban/)
+    - Rust sokoban [Tutorial](https://sokoban.iolivia.me/c01-00-intro)
 
 ## 2024 June 
 - *Rust* [Async in depth](https://tokio.rs/tokio/tutorial/async): a deep explanation about Rust's asynchronous runtime model.

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Rust中Copy和Clone两种Trait的比较 | Ojiisan</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://rogerwq.github.io/style.css">
+    <link rel="stylesheet" href="https://rogerwq.github.io/color/blue.css">
+
+    <link rel="stylesheet" href="https://rogerwq.github.io/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="Rust中Copy和Clone两种Trait的比较 | Ojiisan">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://rogerwq.github.io/rust-copy-clone/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="Rust中Copy和Clone两种Trait的比较 | Ojiisan">
+    <meta property="twitter:domain" content="rogerwq.github.io">
+    <meta property="twitter:url" content="https://rogerwq.github.io/rust-copy-clone/">
+
+        <link rel="shortcut icon" type="image/jpg" href="/favicon.jpg">
+    
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-09SSBRWGSF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-09SSBRWGSF');
+    </script>
+  
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://rogerwq.github.io" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Ojiisan
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://rogerwq.github.io">Blogs</a></li>
+            
+                <li><a href="https://rogerwq.github.io/tags">Tags</a></li>
+            
+                <li><a href="https://rogerwq.github.io/archive">Archives</a></li>
+            
+                <li><a href="https://rogerwq.github.io/about">About</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://rogerwq.github.io/rust-copy-clone/">Rust中Copy和Clone两种Trait的比较</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-05-19
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://rogerwq.github.io/tags/rust/">#Rust</a></span>
+    
+
+        <div class="post-content">
+            <h2 id="cong-rust-de-bian-liang-suo-you-quan-shuo-qi">从 Rust 的变量所有权说起</h2>
+<p>Rust 中的所有权规则可以总结为：</p>
+<ul>
+<li>Rust 中的每个值都有一个所有者变量。</li>
+<li>同一时间每个值仅允许存在一个对应的所有者变量。</li>
+<li>当超出所有者变量的作用域时，从内存中对应的值将被释放。</li>
+</ul>
+<p>因此，以下代码将会由于所有权规则产生编译错误。</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>   </span><span style="color:#b48ead;">let</span><span> s1 = String::from(&quot;</span><span style="color:#a3be8c;">Hello World!</span><span>&quot;); </span><span style="color:#65737e;">// s1 为所有者变量。
+</span><span>   </span><span style="color:#b48ead;">let</span><span> s2 = s1;  </span><span style="color:#65737e;">// 字符串值由 s1 传递给 s2，s2 成为新的所有者变量，s1 不再拥有该值。
+</span><span>
+</span><span>   println!(&quot;</span><span style="color:#a3be8c;">s1: </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">, s2: </span><span style="color:#d08770;">{}</span><span>&quot;, s1, s2); </span><span style="color:#65737e;">// 编译错误：s1 无法访问
+</span><span>}
+</span></code></pre>
+<p>但如果将变量的类型改为整型，则可以成功编译。</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> i1: </span><span style="color:#b48ead;">i32 </span><span>= </span><span style="color:#d08770;">42</span><span>;
+</span><span>    </span><span style="color:#b48ead;">let</span><span> i2 = i1; 
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">i1: </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">, i2: </span><span style="color:#d08770;">{}</span><span>&quot;, i1, i2); 
+</span><span>}
+</span></code></pre>
+<h2 id="dui-yu-bu-tong-de-lei-xing-xiang-tong-de-dai-ma-wei-shi-yao-chan-sheng-liao-bu-tong-de-bian-yi-jie-guo">对于不同的类型，相同的代码为什么产生了不同的编译结果？</h2>
+<p>原因在于 i32 类型默认实现了 Copy Trait，从而使得在表达式<code>let i2 = i1;</code>中，实际隐含了复制变量 i1 并赋值变量 i2 的操作。
+传递给 i2 的是复制后的新值，i1 依然包含原有的整型值。</p>
+<p>按照这一思路对字符串相关的代码进行修改，由于 String 类型实现了 Clone Trait，因此将表达式修改为<code>let s2 = s1.clone();</code> 则可以成功编译。</p>
+<h2 id="bing-fei-suo-you-de-lei-xing-du-ke-yi-shi-xian-copy-trait">并非所有的类型都可以实现 Copy Trait</h2>
+<p>能够实现 Copy Trait 的类型有：</p>
+<ul>
+<li>所有的整型：u8，i16，u32，i64 等等</li>
+<li>布尔型：bool</li>
+<li>浮点型：f32 和 f64</li>
+<li>字符型：char</li>
+<li>仅包含以上类型的 struct, tuple 等</li>
+</ul>
+<p>也就是说，Copy 操作可以看作是简单的比特复制。</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">derive</span><span>(Clone, Copy)] </span><span style="color:#65737e;">// 编译通过
+</span><span style="color:#b48ead;">struct </span><span>Point {
+</span><span>    </span><span style="color:#bf616a;">x</span><span>: </span><span style="color:#b48ead;">i32</span><span>,
+</span><span>    </span><span style="color:#bf616a;">y</span><span>: </span><span style="color:#b48ead;">i32
+</span><span>}
+</span><span>
+</span><span>#[</span><span style="color:#bf616a;">derive</span><span>(Clone, Copy)] </span><span style="color:#65737e;">// 编译无法通过，提示 String 类型没有实现 Copy Trait
+</span><span style="color:#b48ead;">struct </span><span>Student {
+</span><span>    </span><span style="color:#bf616a;">name</span><span>: String,
+</span><span>    </span><span style="color:#bf616a;">age</span><span>: </span><span style="color:#b48ead;">u8
+</span><span>}
+</span></code></pre>
+<h2 id="bu-neng-shi-xian-copy-trait-de-lei-xing">不能实现 Copy Trait 的类型</h2>
+<ul>
+<li>String 型：String 型的实现包含了一个指向堆的指针，复制这个指针会产生多重释放的问题。</li>
+<li>Vec<T>, 即使 T 是可 Copy 的类型, Vec<T> 也无法实现 Copy。原因与 String 的情况类似。</li>
+<li>&amp;mut T：可变引用本质上具有唯一性，因此也无法实现 Copy。</li>
+</ul>
+<p>简言之，涉及到内存分配、释放等复杂操作，或者与所有权规则相悖的情况，都无法实现Copy Trait。</p>
+<p>这一点也可以从下面这个例子看出，Rust 编译器表示 Drop 和 Copy 是冲突的。</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">derive</span><span>(Clone, Copy)] </span><span style="color:#65737e;">// 提示编译错误，Copy 和 Drop 冲突。
+</span><span style="color:#b48ead;">struct </span><span>Point {
+</span><span>    </span><span style="color:#bf616a;">x</span><span>: </span><span style="color:#b48ead;">i32</span><span>,
+</span><span>    </span><span style="color:#bf616a;">y</span><span>: </span><span style="color:#b48ead;">i32
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">impl </span><span>Drop </span><span style="color:#b48ead;">for </span><span>Point { </span><span style="color:#65737e;">// 编译器认为 Drop 实现中会定义较复杂的内存操作。
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">drop</span><span>(&amp;</span><span style="color:#b48ead;">mut </span><span style="color:#bf616a;">self</span><span>) { todo!() }
+</span><span>}
+</span></code></pre>
+<h2 id="clone-shi-copy-de-chao-ji">Clone 是 Copy 的超集</h2>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">derive</span><span>(Copy)] </span><span style="color:#65737e;">// 编译错误，实现 Copy 的前提是实现 Clone。
+</span><span style="color:#b48ead;">struct </span><span>Point {
+</span><span>    </span><span style="color:#bf616a;">x</span><span>: </span><span style="color:#b48ead;">i32</span><span>,
+</span><span>    </span><span style="color:#bf616a;">y</span><span>: </span><span style="color:#b48ead;">i32
+</span><span>}
+</span></code></pre>
+<p>实现 Copy 的方法有且只有以下两种。</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">derive</span><span>(Copy, Clone)]
+</span><span style="color:#b48ead;">struct </span><span>MyStruct;
+</span></code></pre>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">struct </span><span>MyStruct;
+</span><span>
+</span><span style="color:#b48ead;">impl </span><span>Copy </span><span style="color:#b48ead;">for </span><span>MyStruct { }
+</span><span>
+</span><span style="color:#b48ead;">impl </span><span>Clone </span><span style="color:#b48ead;">for </span><span>MyStruct {
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">clone</span><span>(&amp;</span><span style="color:#bf616a;">self</span><span>) -&gt; MyStruct {
+</span><span>        *</span><span style="color:#bf616a;">self
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>Rust 不允许重新定义 Copy，反之 Clone 的重新定义则是允许的。 </p>
+<h2 id="zong-jie">总结</h2>
+<ul>
+<li>Copy 是隐式的，Clone 是显式的。</li>
+<li>Copy 执行代价小，Clone 可能涉及到复杂的内存操作。</li>
+<li>Copy 不允许重新定义，Clone 则可以重新定义。</li>
+</ul>
+<h2 id="can-kao-lian-jie">参考链接</h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#what-is-ownership">The Rust Programming Language: What Is Ownership?</a></li>
+<li><a href="https://doc.rust-lang.org/std/marker/trait.Copy.html#">Trait std::marker::Copy</a></li>
+<li><a href="https://oswalt.dev/2023/12/copy-and-clone-in-rust/">Matt Oswalt: Copy and Clone in Rust</a></li>
+<li><a href="https://blog.logrocket.com/disambiguating-rust-traits-copy-clone-dynamic/">Understanding Rust disambiguating traits: Copy, Clone, and Dynamic</a></li>
+</ul>
+
+        </div>
+
+        
+        <div class="pagination">
+            <div class="pagination__title">
+                <span class="pagination__title-h">Thanks for reading! Read other posts?</span>
+                <hr />
+            </div>
+            <div class="pagination__buttons">
+                
+                    <span class="button next">
+                        <a href="https://rogerwq.github.io/reading-updates/">
+                            <span class="button__text">Reading Updates</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+        </div>
+    
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2024
+ Powered by <a href="https://www.getzola.org/">Zola</a></span>
+                    <span class="copyright-theme">
+                        <span class="copyright-theme-sep">:: </span>
+                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
+                    </span>
+                </div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

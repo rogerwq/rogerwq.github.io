@@ -1,9 +1,9 @@
 +++
-title = "关于我"
+title = "About Me"
 path = "about"
 +++
 
-慢叔42，工程师，对新技术抱有浓厚的兴趣。
+Ojiisan enginner interested in new technologies.
 
 - Rust
 - Python

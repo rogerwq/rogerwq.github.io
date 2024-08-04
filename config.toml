@@ -1,6 +1,6 @@
 # base_url = "https://www.sylvestris.blog"
 base_url = "https://rogerwq.github.io"
-title = "慢叔42的笔记"
+title = "Ojiisan"
 compile_sass = true
 build_search_index = true
 
@@ -19,13 +19,13 @@ highlight_code = true
 # google_analytics = "UA-107737460-1"
 google_analytics = "G-09SSBRWGSF"
 
-logo_text = "慢叔42的笔记"
+logo_text = "Ojiisan"
 
 menu_items = [
-    {name = "文章", url = "$BASE_URL"},
-    {name = "标签", url = "$BASE_URL/tags"},
-    {name = "存档", url = "$BASE_URL/archive"},
-    {name = "关于我", url = "$BASE_URL/about"},
+    {name = "Blogs", url = "$BASE_URL"},
+    {name = "Tags", url = "$BASE_URL/tags"},
+    {name = "Archives", url = "$BASE_URL/archive"},
+    {name = "About", url = "$BASE_URL/about"},
     # {name = "github", url = "https://github.com/rogerwq", newtab = true},
 ]
 
